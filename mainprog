@@ -1,0 +1,26 @@
+alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+def cipher_decoder(message,offset):
+  message = message.lower() 
+  decoded_message = ""
+  for char in message:
+    if char not in alphabet:
+      decoded_message+=char
+      continue
+    else:
+      index_in_alph = alphabet.find(char)
+      char = alphabet[index_in_alph+offset] 
+    decoded_message+=char
+  return decoded_message
+
+def cipher_encoder(message,offset):
+  message = message.lower()
+  encoded_message = ""
+  for char in message:
+    if char not in alphabet:
+      encoded_message+=char
+      continue
+    else:
+      index_in_alph = alphabet.find(char)
+      char = alphabet[index_in_alph-offset] 
+    encoded_message+=char
+  return encoded_message
